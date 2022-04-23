@@ -13,8 +13,25 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLinks() throws IOException {
-        Path fileName = Path.of("test-file.md");
+        Path fileName = Path.of("/Users/borisrabov/CSE15L/markdown-parser/break-test.md");
         String content = Files.readString(fileName);
         assertEquals(List.of("https://something.com", "some-thing.html"), MarkdownParse.getLinks(content));
+    }
+
+
+    @Test 
+    public void testImgParcer() throws IOException {
+        Path fileName = Path.of("/Users/borisrabov/CSE15L/markdown-parser/test-img.md");
+        String content = Files.readString(fileName);
+
+        assertEquals(List.of(), MarkdownParse.getLinks(content));
+    }
+
+    @Test 
+    public void testBreak() throws IOException {
+        Path fileName = Path.of("/Users/borisrabov/CSE15L/markdown-parser/test-break.md");
+        String content = Files.readString(fileName);
+
+        assertEquals(List.of(), MarkdownParse.getLinks(content));
     }
 }
