@@ -20,15 +20,6 @@ public class MarkdownParseTest {
         assertEquals(List.of("https://something.com", "some-thing.html"), MarkdownParse.getLinks(content));
     }
 
-
-    @Test 
-    public void testImgParcer() throws IOException {
-        Path fileName = Path.of(path+"test-img.md");
-        String content = Files.readString(fileName);
-
-        assertEquals(List.of(), MarkdownParse.getLinks(content));
-    }
-
     @Test 
     public void testBreak() throws IOException {
         Path fileName = Path.of(path+"test-break.md");
