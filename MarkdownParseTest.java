@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class MarkdownParseTest {
+
+    String path = "./";
     @Test
     public void addition() {
         assertEquals(2, 1 + 1);
@@ -13,7 +15,7 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLinks() throws IOException {
-        Path fileName = Path.of("/Users/borisrabov/CSE15L/markdown-parser/break-test.md");
+        Path fileName = Path.of(path+"break-test.md");
         String content = Files.readString(fileName);
         assertEquals(List.of("https://something.com", "some-thing.html"), MarkdownParse.getLinks(content));
     }
@@ -21,7 +23,7 @@ public class MarkdownParseTest {
 
     @Test 
     public void testImgParcer() throws IOException {
-        Path fileName = Path.of("/Users/borisrabov/CSE15L/markdown-parser/test-img.md");
+        Path fileName = Path.of(path+"test-img.md");
         String content = Files.readString(fileName);
 
         assertEquals(List.of(), MarkdownParse.getLinks(content));
@@ -29,7 +31,7 @@ public class MarkdownParseTest {
 
     @Test 
     public void testBreak() throws IOException {
-        Path fileName = Path.of("/Users/borisrabov/CSE15L/markdown-parser/test-break.md");
+        Path fileName = Path.of(path+"test-break.md");
         String content = Files.readString(fileName);
 
         assertEquals(List.of(), MarkdownParse.getLinks(content));
